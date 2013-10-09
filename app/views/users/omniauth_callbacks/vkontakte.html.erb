@@ -1,0 +1,13 @@
+<h1>Привет, <%= @user %>!</h1>
+
+<p>На нашем сайте еще нет вашей учетной записи. Пожалуйста, введите email и укажите желаемый пароль.</p>
+
+<%= simple_form_for @user, url: users_create_path do |f| %>
+  <%= f.input :email %>
+  <%= f.input :password %>
+  <%= f.input :password_confirmation %>
+  <%= f.input :name, as: :hidden %>
+  <%= f.input :provider, as: :hidden %>
+  <%= f.input :uid, as: :hidden %>
+  <%= f.submit %>
+<% end %>

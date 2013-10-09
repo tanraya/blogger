@@ -1,0 +1,14 @@
+<h1><%= @post %></h1>
+<p>Written by <em><%= @post.author %></em> at <em><%= l @post.created_at %></em></p>
+
+<div>
+  <% if can?(:edit, @post) %>
+    <%= link_to 'Edit', edit_post_path(@post) %>
+    <%= link_to 'Destroy', @post, method: :delete, data: { confirm: 'Are you sure?' } %>
+  <% end %>
+</div>
+
+<article>
+  <%= post_image(@post, @force_reload) %>
+  <%= raw @post.article %>
+</article>

@@ -1,0 +1,56 @@
+<!DOCTYPE html><!--[if lt IE 7 ]> <html class="ie6 no-js" lang="en"> <![endif]-->
+<!--[if IE 7 ]>    <html class="ie7 no-js" lang="en"> <![endif]-->
+<!--[if IE 8 ]>    <html class="ie8 no-js" lang="en"> <![endif]-->
+<!--[if IE 9 ]>    <html class="ie9 no-js" lang="en"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <!--[if ie]><meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible"><![endif]-->
+
+  <title><%#= page_title 'Easywyg &ndash; WYSYWYG editor that integrates with your website just in few simple steps' %></title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- OpenGraph Metas -->
+  <meta property="og:title" content="">
+  <meta property="og:description" content="">
+  <meta property="og:type" content="">
+  <meta property="og:url" content="">
+  <meta property="og:image" content="">
+
+  <link rel="shortcut icon" href="/favicon.ico">
+
+  <script>
+    document.documentElement.className = document.documentElement.className.replace('no-js', 'js')
+  </script>
+
+  <!--[if lt IE 9]>
+    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+
+  <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
+  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+  
+
+  <main>
+    <div class="container">
+      <header>
+        <h1><%= link_to 'Blogger', root_path %></h1>
+
+        <div class="pull-right">
+          <% if user_signed_in? %>
+            Hello, <%= current_user %>! <%= link_to 'Logout', destroy_user_session_path, :method => :delete, class: 'btn btn-danger' %>
+          <% else %>
+            <%= link_to 'Login', new_user_session_path, class: 'btn btn-success' %>
+          <% end %>
+        </div>
+      </header>
+
+      <%#= flash_messages %>
+      <%= yield %>
+    </div>
+  </main>
+</body>
+</html>
