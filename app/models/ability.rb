@@ -3,7 +3,9 @@ class Ability
 
   def initialize(user)
     user ||= User.new
-
-    can :manage, Post, author: user
+    
+    if user.persisted?
+      can :manage, Post, author: user
+    end
   end
 end

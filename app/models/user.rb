@@ -6,8 +6,6 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable,
          :omniauthable
 
-  #include Concerns::User::Oauth  
-
   def name
     read_attribute(:name) || email.split('@').first
   end
