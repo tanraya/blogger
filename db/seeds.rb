@@ -1,5 +1,7 @@
-# Clear database
-Rake::Task["db:reset"].invoke
+if Rails.env.development?
+  # Clear database
+  Rake::Task["db:reset"].invoke
+end
 
 lorem_html = "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur a lectus rutrum, faucibus arcu eu, congue libero. Donec lectus massa, pretium ut nisi quis, mollis suscipit ante. Donec non iaculis ligula. Interdum et malesuada fames ac ante ipsum primis in faucibus. Etiam aliquet nibh a orci pellentesque, a gravida turpis iaculis. Sed eget varius magna. Proin tempor lacinia diam mollis posuere. Ut vestibulum mauris sed eros pharetra, nec sollicitudin quam malesuada. Praesent elementum justo enim, eu ullamcorper lacus commodo non. Ut nulla tellus, convallis et dui vitae, tristique rutrum velit. In facilisis eget nisl vel vulputate. Suspendisse ultricies sem mi, at vulputate magna aliquam et. Nunc id molestie ipsum, vitae ornare tortor. Praesent vel mauris a magna pharetra tincidunt in ornare dui. Phasellus enim neque, porta ac leo at, lacinia ornare urna.</p><p>Mauris lobortis tellus turpis, non varius lorem volutpat vel. Praesent sed blandit nibh, ut vulputate quam. Nam nec orci auctor, tempus nibh vel, elementum urna. Nam sapien nibh, tristique eget lectus eget, egestas venenatis quam. Praesent vitae suscipit lorem, bibendum viverra diam. In velit sapien, pharetra eget libero et, mollis tincidunt erat. Duis eu mauris bibendum, sodales neque vitae, fermentum nisi. Mauris tincidunt facilisis leo viverra sagittis. Mauris sed consequat tortor. Suspendisse potenti. Vestibulum in volutpat arcu. Quisque at tincidunt diam.</p>"
 
