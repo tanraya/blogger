@@ -5,6 +5,7 @@
 # cap db:seed (on first deploy)
 
 require 'bundler/capistrano'
+require 'sidekiq/capistrano'
 
 # Common settings
 set :application,   'blogger'
@@ -29,3 +30,11 @@ load 'config/deploy/database.rb'
 
 after "bundle:install", "deploy:migrate"
 after "deploy",         "deploy:cleanup"
+
+# Sidekiq options
+set(:sidekiq_cmd) { "#{bundle_cmd} exec sidekiq" }
+set(:sidekiqctl_cmd) { "#{bundle_cmd} exec sidekiqctl" }
+set(:sidekiq_timeout) { 10 }
+set(:sidekiq_role) { :app }
+set(:sidekiq_pid) { "#{current_path}/tmp/pids/sidekiq.pid" }
+set(:sidekiq_processes) { 1 }
