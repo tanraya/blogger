@@ -5,7 +5,6 @@
 # cap db:seed (on first deploy)
 
 require 'bundler/capistrano'
-load 'deploy/assets'
 
 # Common settings
 set :application,   'blogger'
