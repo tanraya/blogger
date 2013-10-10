@@ -23,7 +23,6 @@ set :deploy_to,     "/home/#{user}"
 ssh_options[:forward_agent] = true
 default_run_options[:pty]   = false
 
-load 'config/deploy/capistrano_colors.rb'
 load 'config/deploy/production.rb'
 load 'config/deploy/unicorn.rb'
 load 'config/deploy/database.rb'
